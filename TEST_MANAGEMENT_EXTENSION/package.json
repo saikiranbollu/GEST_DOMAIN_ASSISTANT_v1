@@ -1,0 +1,135 @@
+{
+  "name": "test-management-system",
+  "displayName": "Test Management System",
+  "description": "Semantic test code generation using RAG + Knowledge Graph integration",
+  "version": "1.0.0",
+  "publisher": "cxpi-team",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "keywords": [
+    "test generation",
+    "semantic search",
+    "knowledge graph",
+    "RAG",
+    "code generation",
+    "MISRA-C"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "testManagementContainer",
+          "title": "Test Management",
+          "icon": "$(beaker)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "testManagement.generateTest",
+        "title": "Generate Test",
+        "category": "Test Management"
+      },
+      {
+        "command": "testManagement.selectModule",
+        "title": "Select Module",
+        "category": "Test Management"
+      },
+      {
+        "command": "testManagement.showPanel",
+        "title": "Show Test Generator Panel",
+        "category": "Test Management"
+      },
+      {
+        "command": "testManagement.switchModel",
+        "title": "Switch LLM Model",
+        "category": "Test Management"
+      }
+    ],
+    "views": {
+      "testManagementContainer": [
+        {
+          "id": "testManagementView",
+          "name": "Test Generator",
+          "type": "webview",
+          "icon": "$(file-code)",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Test Management System",
+      "properties": {
+        "testManagement.backendUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "FastAPI backend URL"
+        },
+        "testManagement.module": {
+          "type": "string",
+          "default": "cxpi",
+          "enum": [
+            "cxpi",
+            "lin",
+            "btl",
+            "can"
+          ],
+          "description": "Default module to use"
+        },
+        "testManagement.llmModel": {
+          "type": "string",
+          "description": "LLM model to use for enhancement"
+        },
+        "testManagement.outputDirectory": {
+          "type": "string",
+          "default": "generated_tests",
+          "description": "Directory to save generated tests"
+        },
+        "testManagement.gitlabUrl": {
+          "type": "string",
+          "description": "GitLab instance URL (e.g., https://gitlab.com)"
+        },
+        "testManagement.gitlabToken": {
+          "type": "string",
+          "description": "GitLab personal access token"
+        },
+        "testManagement.gitlabProject": {
+          "type": "string",
+          "description": "GitLab project ID (owner/repo)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src/**/*.ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "@types/mocha": "^10.0.0",
+    "typescript": "^5.3.0",
+    "eslint": "^8.50.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vscode/test-electron": "^2.3.0",
+    "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "app_name": "Test Management System",
+  "version": "0.1.0",
+  "databases": {
+    "chromadb": {
+      "path": "../MCP_DB_INGESTION/output/chroma_data"
+    },
+    "neo4j": {
+      "uri": "bolt://localhost:7687",
+      "user": "neo4j",
+      "password": "Innovation25"
+    }
+  },
+  "api": {
+    "host": "127.0.0.1",
+    "port": 8000
+  }
+}

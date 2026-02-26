@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+out/
+*.vsix
+
+# Local models (large files)
+TEST_MANAGEMENT_APP/local_models/
+
+# ChromaDB data
+output/chroma_data/
+
+# Neo4j dumps
+output/*.dump
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env

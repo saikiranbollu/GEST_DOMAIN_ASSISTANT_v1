@@ -1,0 +1,27 @@
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic>=2.7.0
+pydantic-settings>=2.0.0
+
+# Environment
+python-dotenv==1.0.0
+
+# Vector DB & NLP
+chromadb==0.4.24
+numpy<2.0,>=1.21.6
+sentence-transformers>=2.2.2
+hnswlib>=0.7.0
+nltk>=3.8.1
+
+# Graph DB
+neo4j>=5.14.0
+
+# HTTP & Git
+requests==2.31.0
+GitPython==3.1.40
+python-gitlab==3.15.0
+
+# Testing
+pytest==7.4.3
+pytest-cov>=4.0.0
